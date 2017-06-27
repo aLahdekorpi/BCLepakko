@@ -1,29 +1,41 @@
 package alexlahdekorpi.bclepakko;
 
-import android.content.Context;
+import android.graphics.Point;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Display;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 /**
  * Created by alex.lahdekorpi on 22.6.2017.
  */
 
-public class SpaceObject implements Collideable {
+public class SpaceObject extends AppCompatActivity implements Collideable, Destroyable {
 
 
+    private WindowManager wm;
     public ImageView imageView;
     public HitChecker hitChecker;
     public int speed;
 
-    public int hitX;
-    public int hitY;
+    public int hitPoints;
 
-    public SpaceObject(ImageView imageView) {
+    public int screenWidth;
+    public int screenHeight;
+
+    public SpaceObject(ImageView imageView, WindowManager wm) {
         this.imageView = imageView;
+        this.wm = wm;
         createHitChecker();
+        setScreenSizes();
     }
 
 
     //MOVEMENT
+    public void renew(){
+        moveYTo(-50);
+        moveXTo((int) Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
+    }
     public void moveX(int amount){this.imageView.setX(this.imageView.getX() + amount);}
     public void moveY(int amount){this.imageView.setY(this.imageView.getY() + amount);}
     public void moveXTo(int place){this.imageView.setX(place);}
@@ -40,6 +52,23 @@ public class SpaceObject implements Collideable {
     public void setSpeed(int speed) { this.speed = speed; }
     public ImageView getImageView() { return this.imageView;}
     public HitChecker getHitChecker() {return this.hitChecker;}
+    public int getScreenWidth() {return this.screenWidth;}
+    public int getScreenHeight() {return this.screenHeight;}
+
+    //CREATE HITCHECKER FOR SPACEOBJECT
+    @Override
+    public void createHitChecker() {
+        this.hitChecker = new HitChecker(this);
+    }
+
+    public void setScreenSizes(){
+        Display disp = this.wm.getDefaultDisplay();
+        Point size = new Point();
+        disp.getSize(size);
+        this.screenWidth = size.x;
+        this.screenHeight = size.y;
+
+    }
 
 
     //IMPLEMENTED METHODS
@@ -50,10 +79,24 @@ public class SpaceObject implements Collideable {
     @Override
     public int getHitY() {return this.imageView.getHeight() + getY() / 2;}
 
-    //CREATE HITCHECKER FOR SPACEOBJECT
+
     @Override
-    public void createHitChecker() {
-        this.hitChecker = new HitChecker(this);
+    public int getHitPoints() {
+        return 0;
     }
 
+    @Override
+    public int dropHitPoints(int amount) {
+        return 0;
+    }
+
+    @Override
+    public int setHitPoints(int amount) {
+        return 0;
+    }
+
+    @Override
+    public void destroyed() {
+
+    }
 }
