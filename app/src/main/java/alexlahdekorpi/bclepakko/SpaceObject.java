@@ -82,21 +82,25 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
 
     @Override
     public int getHitPoints() {
-        return 0;
+        return getHitPoints();
     }
 
     @Override
-    public int dropHitPoints(int amount) {
-        return 0;
+    public void dropHitPoints(int amount) {
+        this.hitPoints -= amount;
     }
 
     @Override
-    public int setHitPoints(int amount) {
-        return 0;
+    public void setHitPoints(int amount) {
+        this.hitPoints = amount;
     }
 
     @Override
-    public void destroyed() {
-
+    public boolean isDestroyed() {
+        if (this.hitPoints < 1){
+            return true;
+        }
+        return false;
     }
+
 }

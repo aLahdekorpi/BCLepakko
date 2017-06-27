@@ -115,17 +115,24 @@ public class main extends AppCompatActivity {
 
     public void checkIfShotHit() {
         if (shot.getHitChecker().isHit(triangle)) {
-
+            triangle.dropHitPoints(1);
+            if (triangle.isDestroyed()) {
+                triangle.renew();
+            }
             shot.moveXTo(lepakko.getX());
             shot.moveYTo(lepakko.getY());
             scoreBoard.addScore(50);
 
         }
         if (shot.getHitChecker().isHit(circle)) {
-            shot.moveXTo(lepakko.getX());
-            shot.moveYTo(lepakko.getY());
-            scoreBoard.addScore(100);
+            circle.dropHitPoints(1);
+            if (circle.isDestroyed()) {
+                circle.renew();
+                shot.moveXTo(lepakko.getX());
+                shot.moveYTo(lepakko.getY());
+                scoreBoard.addScore(100);
 
+            }
         }
     }
 

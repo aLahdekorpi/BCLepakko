@@ -6,7 +6,8 @@ package alexlahdekorpi.bclepakko;
 
 public interface Destroyable {
     int getHitPoints();
-    int dropHitPoints(int amount);
-    int setHitPoints(int amount);
-    void destroyed();
+    void dropHitPoints(int amount);
+    void setHitPoints(int amount);
+    boolean isDestroyed();
+
 }
