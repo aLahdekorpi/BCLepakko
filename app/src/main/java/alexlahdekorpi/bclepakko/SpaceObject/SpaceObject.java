@@ -21,16 +21,17 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     private WindowManager wm;
     public ImageView imageView;
     public HitChecker hitChecker;
+    public ScoreBoard scoreBoard;
+
     public int speed;
-
     public int hitPoints;
-
     public int screenWidth;
     public int screenHeight;
 
-    public SpaceObject(ImageView imageView, WindowManager wm) {
+    public SpaceObject(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
         this.imageView = imageView;
         this.wm = wm;
+        this.scoreBoard = scoreBoard;
         createHitChecker();
         setScreenSizes();
     }
@@ -47,6 +48,8 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     public void moveYTo(int place){this.imageView.setY(place);}
 
     //GETSET
+
+    public ScoreBoard getScoreBoard() {return this.scoreBoard;}
     public int getY(){
         return (int) this.imageView.getY();
     }
@@ -65,12 +68,6 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     public void createHitChecker() {
         this.hitChecker = new HitChecker(this);
     }
-
-    @Override
-    public ScoreBoard getScoreBoard() {
-        return this.getScoreBoard();
-    }
-
 
     public void setScreenSizes(){
         Display disp = this.wm.getDefaultDisplay();
@@ -114,4 +111,8 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
         return false;
     }
 
+    @Override
+    public void destroyAction(ScoreBoard scoreBoard) {
+
+    }
 }

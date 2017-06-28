@@ -14,7 +14,7 @@ import java.util.TimerTask;
 
 import alexlahdekorpi.bclepakko.SpaceObject.Circle;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
-import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
+import alexlahdekorpi.bclepakko.SpaceObject.SingleBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Triangle;
 
 
@@ -27,7 +27,7 @@ public class main extends AppCompatActivity {
     private Lepakko lepakko;
     private Triangle triangle;
     private Circle circle;
-    private SpaceObject shot;
+    private SingleBullet singleBullet;
 
     //Initialize Class
     private Handler handler = new Handler();
@@ -44,7 +44,6 @@ public class main extends AppCompatActivity {
         this.wm = getWindowManager();
         startLabel = (TextView) findViewById(R.id.startLabel);
         scoreBoard = new ScoreBoard((TextView) findViewById(R.id.scoreText));
-
         createSpaceObjects();
     }
 
@@ -66,7 +65,6 @@ public class main extends AppCompatActivity {
                         public void run() {
                             changePos();
                             checkIfLepakkoHit();
-                            checkIfShotHit();
                             scoreBoard.update();
                         }
                     });
@@ -75,8 +73,7 @@ public class main extends AppCompatActivity {
 
 
         } else {
-            lepakko.moveYTo((int) me.getY() - 300);
-            lepakko.moveXTo((int) me.getX() - 60);
+            lepakko.moveToTouch(me);
         }
         return true;
     }
@@ -87,54 +84,27 @@ public class main extends AppCompatActivity {
         lepakko.checkCollisionWithLepakkoCollideable(circle);
     }
 
-    public void createSpaceObjects(){
-        lepakko = new Lepakko ((ImageView) findViewById(R.id.lepakkoImg), this.wm);
-        shot = new SpaceObject ((ImageView) findViewById(R.id.shot), this.wm);
-        shot.moveYTo(lepakko.getY());
-        shot.moveXTo(lepakko.getX());
-        shot.setSpeed(-100);
 
-        triangle = new Triangle((ImageView) findViewById(R.id.triangle), this.wm);
-        circle = new Circle((ImageView) findViewById(R.id.circle), this.wm);
-
-
-    }
 
 
     public void moveShot() {
-        shot.moveY(shot.getSpeed());
-        checkIfShotHit();
-        if (shot.getY() < 0) {
-            shot.moveXTo(lepakko.getX());
-            shot.moveYTo(lepakko.getY());
-        }
+        singleBullet.moveY(singleBullet.getSpeed());
+        singleBullet.checkShotOutOfBounds();
+        singleBullet.checkShotHit(triangle);
+        singleBullet.checkShotHit(circle);
 
 
     }
+    public void createSpaceObjects(){
+        lepakko = new Lepakko ((ImageView) findViewById(R.id.lepakkoImg), this.wm, scoreBoard);
+        triangle = new Triangle((ImageView) findViewById(R.id.triangle), this.wm, scoreBoard);
+        circle = new Circle((ImageView) findViewById(R.id.circle), this.wm, scoreBoard);
+        singleBullet = new SingleBullet ((ImageView) findViewById(R.id.shot), this.wm,scoreBoard, lepakko);
 
-    public void checkIfShotHit() {
-        if (shot.getHitChecker().isHit(triangle)) {
-            triangle.dropHitPoints(1);
-            if (triangle.isDestroyed()) {
-                triangle.renew();
-            }
-            shot.moveXTo(lepakko.getX());
-            shot.moveYTo(lepakko.getY());
-            scoreBoard.addScore(50);
-
-        }
-        if (shot.getHitChecker().isHit(circle)) {
-            circle.dropHitPoints(1);
-            if (circle.isDestroyed()) {
-                circle.renew();
-                shot.moveXTo(lepakko.getX());
-                shot.moveYTo(lepakko.getY());
-                scoreBoard.addScore(100);
-
-            }
-        }
     }
+
 
 }
+
 
 

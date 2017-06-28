@@ -12,11 +12,11 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
  */
 
 public class Circle extends SpaceObject implements Renewable, LepakkoCollideable {
-    public SpaceObject lepakko;
+
     public int defaultHitPoints;
 
-    public Circle(ImageView imageView, WindowManager wm) {
-        super(imageView, wm);
+    public Circle(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
+        super(imageView, wm, scoreBoard);
         setSpeed(20);
         setDefaultHitPoints(1);
     }
@@ -36,14 +36,10 @@ public class Circle extends SpaceObject implements Renewable, LepakkoCollideable
         setHitPoints(getDefaultHitPoints());
     }
     @Override
-    public int getDefaultHitPoints() {
-        return 0;
-    }
+    public int getDefaultHitPoints() {return this.defaultHitPoints;}
 
     @Override
-    public void setDefaultHitPoints(int defaultHitPoints) {
-        this.defaultHitPoints = defaultHitPoints;
-    }
+    public void setDefaultHitPoints(int defaultHitPoints) {this.defaultHitPoints = defaultHitPoints;}
 
 
     @Override
@@ -52,5 +48,13 @@ public class Circle extends SpaceObject implements Renewable, LepakkoCollideable
             scoreBoard.nullScore();
 
     }
+
+    @Override
+    public void destroyAction(ScoreBoard scoreBoard){
+        renew();
+        scoreBoard.addScore(50);
+    }
+
+
 }
 

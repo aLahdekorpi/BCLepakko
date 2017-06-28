@@ -15,8 +15,8 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
 
     public int defaultHitPoints;
 
-    public Triangle(ImageView imageView, WindowManager wm) {
-        super(imageView, wm);
+    public Triangle(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
+        super(imageView, wm, scoreBoard);
         setSpeed(15);
         setDefaultHitPoints(3);
     }
@@ -51,4 +51,10 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
             scoreBoard.nullScore();
 
     }
+    @Override
+    public void destroyAction(ScoreBoard scoreBoard){
+        renew();
+        scoreBoard.addScore(100);
+    }
+
 }
