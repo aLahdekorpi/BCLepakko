@@ -1,5 +1,7 @@
 package alexlahdekorpi.bclepakko;
 
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;
+
 /**
  * Created by alex.lahdekorpi on 26.6.2017.
  */

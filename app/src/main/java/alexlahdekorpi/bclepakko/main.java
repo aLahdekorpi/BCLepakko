@@ -12,6 +12,11 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import alexlahdekorpi.bclepakko.SpaceObject.Circle;
+import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
+import alexlahdekorpi.bclepakko.SpaceObject.Triangle;
+
 
 public class main extends AppCompatActivity {
 
@@ -19,7 +24,7 @@ public class main extends AppCompatActivity {
     private ScoreBoard scoreBoard;
 
     //SpaceObjects
-    private SpaceObject lepakko;
+    private Lepakko lepakko;
     private Triangle triangle;
     private Circle circle;
     private SpaceObject shot;
@@ -78,18 +83,12 @@ public class main extends AppCompatActivity {
 
 
     private void checkIfLepakkoHit() {
-        if(lepakko.getHitChecker().isHit(circle)){
-            circle.moveYTo(-100);
-            scoreBoard.nullScore();
-        }
-        if(lepakko.getHitChecker().isHit(triangle)){
-            triangle.moveYTo(100);
-            scoreBoard.nullScore();
-        }
+        lepakko.checkCollisionWithLepakkoCollideable(triangle);
+        lepakko.checkCollisionWithLepakkoCollideable(circle);
     }
 
     public void createSpaceObjects(){
-        lepakko = new SpaceObject ((ImageView) findViewById(R.id.lepakkoImg), this.wm);
+        lepakko = new Lepakko ((ImageView) findViewById(R.id.lepakkoImg), this.wm);
         shot = new SpaceObject ((ImageView) findViewById(R.id.shot), this.wm);
         shot.moveYTo(lepakko.getY());
         shot.moveXTo(lepakko.getX());

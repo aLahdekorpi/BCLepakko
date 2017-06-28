@@ -1,4 +1,4 @@
-package alexlahdekorpi.bclepakko;
+package alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces;
 
 /**
  * Created by alex.lahdekorpi on 27.6.2017.

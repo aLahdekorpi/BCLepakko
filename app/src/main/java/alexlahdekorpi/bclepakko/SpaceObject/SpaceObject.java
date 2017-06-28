@@ -1,10 +1,15 @@
-package alexlahdekorpi.bclepakko;
+package alexlahdekorpi.bclepakko.SpaceObject;
 
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import alexlahdekorpi.bclepakko.HitChecker;
+import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Destroyable;
 
 /**
  * Created by alex.lahdekorpi on 22.6.2017.
@@ -60,6 +65,12 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     public void createHitChecker() {
         this.hitChecker = new HitChecker(this);
     }
+
+    @Override
+    public ScoreBoard getScoreBoard() {
+        return this.getScoreBoard();
+    }
+
 
     public void setScreenSizes(){
         Display disp = this.wm.getDefaultDisplay();
