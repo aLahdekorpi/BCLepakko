@@ -3,6 +3,7 @@ package alexlahdekorpi.bclepakko.SpaceObject;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.MustKill;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollideable;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
@@ -11,7 +12,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
  * Created by alex.lahdekorpi on 27.6.2017.
  */
 
-public class Circle extends SpaceObject implements Renewable, LepakkoCollideable {
+public class Circle extends SpaceObject implements Renewable, LepakkoCollideable, MustKill {
 
     public int defaultHitPoints;
 
@@ -24,8 +25,7 @@ public class Circle extends SpaceObject implements Renewable, LepakkoCollideable
     public void drop(){
         moveY(getSpeed());
         if(getY() > getScreenHeight()){
-            moveYTo(0);
-            moveXTo((int) Math.floor(Math.random() * (getScreenWidth() - getImageView().getWidth() )));
+            outOfBoundsAction();
         }
     }
 
@@ -43,18 +43,23 @@ public class Circle extends SpaceObject implements Renewable, LepakkoCollideable
 
 
     @Override
-    public void lepakkoCollideAction(ScoreBoard scoreBoard) {
+    public void lepakkoCollideAction() {
             moveYTo(-100);
-            scoreBoard.nullScore();
+            getScoreBoard().nullScore();
 
     }
 
     @Override
-    public void destroyAction(ScoreBoard scoreBoard){
+    public void destroyAction(){
         renew();
-        scoreBoard.addScore(50);
+        getScoreBoard().addScore(50);
     }
 
 
+    @Override
+    public void outOfBoundsAction() {
+        getScoreBoard().nullScore();
+        renew();
+    }
 }
 

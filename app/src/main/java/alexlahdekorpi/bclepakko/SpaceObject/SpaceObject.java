@@ -112,7 +112,7 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     }
 
     @Override
-    public void destroyAction(ScoreBoard scoreBoard) {
+    public void destroyAction() {
 
     }
 }

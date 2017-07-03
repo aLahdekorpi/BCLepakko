@@ -17,7 +17,7 @@ public class Lepakko extends SpaceObject {
     }
     public void checkCollisionWithLepakkoCollideable(LepakkoCollideable colo){
         if(this.getHitChecker().isHit(colo)) {
-            colo.lepakkoCollideAction(getScoreBoard());
+            colo.lepakkoCollideAction();
         }
     }
     public void moveToTouch(MotionEvent me){
