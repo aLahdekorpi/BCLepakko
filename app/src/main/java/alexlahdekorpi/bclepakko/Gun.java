@@ -1,7 +1,9 @@
-package alexlahdekorpi.bclepakko.SpaceObject;
+package alexlahdekorpi.bclepakko;
 
 import android.view.View;
 
+import alexlahdekorpi.bclepakko.SpaceObject.Bullets.Bullet;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
@@ -43,10 +45,14 @@ public class Gun {
     }
 
     public void reduceGunLevel(){
-
+        if(this.bulletLevel > 0){
+            getBullet().getImageView().setVisibility(View.GONE);
+            this.bulletLevel--;
+            getBullet().getImageView().setVisibility(View.VISIBLE);
+        }
     }
     public void upGunLevel(){
-        if(this.bulletLevel<1) {
+        if(this.bulletLevel < this.bulletArray.length-1) {
             getBullet().getImageView().setVisibility(View.GONE);
             this.bulletLevel++;
             getBullet().getImageView().setVisibility(View.VISIBLE);
@@ -54,7 +60,9 @@ public class Gun {
 
     }
     public void nullGunLevel(){
-
+        getBullet().getImageView().setVisibility(View.GONE);
+        this.bulletLevel=0;
+        getBullet().getImageView().setVisibility(View.VISIBLE);
     }
     public Bullet getBullet(){
         return this.bulletArray[this.bulletLevel];

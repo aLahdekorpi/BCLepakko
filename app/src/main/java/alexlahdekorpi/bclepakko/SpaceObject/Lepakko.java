@@ -12,8 +12,10 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollide
  */
 
 public class Lepakko extends SpaceObject {
+
     public Lepakko(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
         super(imageView, wm, scoreBoard);
+
     }
     public void checkCollisionWithLepakkoCollideable(LepakkoCollideable colo){
         if(this.getHitChecker().isHit(colo)) {

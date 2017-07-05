@@ -12,13 +12,13 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import alexlahdekorpi.bclepakko.SpaceObject.BallBullet;
-import alexlahdekorpi.bclepakko.SpaceObject.Bullet;
-import alexlahdekorpi.bclepakko.SpaceObject.Circle;
-import alexlahdekorpi.bclepakko.SpaceObject.Gun;
+import alexlahdekorpi.bclepakko.SpaceObject.Bullets.BallBullet;
+import alexlahdekorpi.bclepakko.SpaceObject.Bullets.Bullet;
+import alexlahdekorpi.bclepakko.SpaceObject.Bullets.SingleBullet;
+import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Square;
+import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Triangle;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
-import alexlahdekorpi.bclepakko.SpaceObject.SingleBullet;
-import alexlahdekorpi.bclepakko.SpaceObject.Triangle;
+import alexlahdekorpi.bclepakko.SpaceObject.PowerUps.Circle;
 
 
 public class main extends AppCompatActivity {
@@ -30,6 +30,7 @@ public class main extends AppCompatActivity {
     private Lepakko lepakko;
     private Triangle triangle;
     private Circle circle;
+    private Square square;
     private Bullet[] bulletArray;
     private SingleBullet singleBullet;
     private BallBullet ballBullet;
@@ -56,6 +57,7 @@ public class main extends AppCompatActivity {
     public void changePos(){
         triangle.drop();
         circle.drop();
+        square.drop();
         moveSingleShot();
     }
 
@@ -88,6 +90,7 @@ public class main extends AppCompatActivity {
     private void checkIfLepakkoHit() {
         lepakko.checkCollisionWithLepakkoCollideable(triangle);
         lepakko.checkCollisionWithLepakkoCollideable(circle);
+        lepakko.checkCollisionWithLepakkoCollideable(square);
     }
 
 
@@ -97,6 +100,7 @@ public class main extends AppCompatActivity {
         mainGun.shoot();
         mainGun.checkShotHit(triangle);
         mainGun.checkShotHit(circle);
+        mainGun.checkShotHit(square);
 
 
     }
@@ -104,6 +108,7 @@ public class main extends AppCompatActivity {
         lepakko = new Lepakko ((ImageView) findViewById(R.id.lepakkoImg), this.wm, scoreBoard);
         triangle = new Triangle((ImageView) findViewById(R.id.triangle), this.wm, scoreBoard);
         circle = new Circle((ImageView) findViewById(R.id.circle), this.wm, scoreBoard);
+        square = new Square((ImageView) findViewById(R.id.square), this.wm, scoreBoard);
         singleBullet = new SingleBullet ((ImageView) findViewById(R.id.shot), this.wm,scoreBoard, lepakko);
         ballBullet = new BallBullet((ImageView) findViewById(R.id.ball), this.wm,scoreBoard, lepakko);
         bulletArray = new Bullet[2];

@@ -1,26 +1,26 @@
-package alexlahdekorpi.bclepakko.SpaceObject;
+package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollideable;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
- * Created by alex.lahdekorpi on 27.6.2017.
+ * Created by alex.lahdekorpi on 5.7.2017.
  */
 
-public class Triangle extends SpaceObject implements Renewable, LepakkoCollideable, MustKill {
-
+public class Enemy extends SpaceObject implements LepakkoCollideable, Renewable, MustKill {
+    public int startY;
     public int defaultHitPoints;
-
-    public Triangle(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
+    public int points;
+    public Enemy(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
         super(imageView, wm, scoreBoard);
-        setSpeed(20);
-        setDefaultHitPoints(3);
     }
     public void drop(){
         moveY(getSpeed());
@@ -30,15 +30,29 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
     }
 
     @Override
-    public void renew(){
+    public void renew() {
         getImageView().setVisibility(View.VISIBLE);
-        moveYTo(-50);
+        moveYTo(getStartY());
         moveXTo((int) Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
         setHitPoints(getDefaultHitPoints());
-
     }
+
+    @Override
+    public void lepakkoCollideAction() {
+        renew();
+        getScoreBoard().nullScore();
+    }
+
+    public int getStartY() {
+        return this.startY;
+    }
+
+    public void setStartY(int startY) {
+        this.startY = startY;
+    }
+    @Override
     public int getDefaultHitPoints() {
-        return defaultHitPoints;
+        return this.defaultHitPoints;
     }
 
     @Override
@@ -46,19 +60,20 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
         this.defaultHitPoints = defaultHitPoints;
     }
 
-
-    @Override
-    public void lepakkoCollideAction() {
-            moveYTo(-100);
-            getScoreBoard().nullScore();
-
+    public int getPoints() {
+        return this.points;
     }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+
     @Override
     public void destroyAction(Gun gun){
         renew();
-        getScoreBoard().addScore(100);
+        getScoreBoard().addScore(getPoints());
     }
-
     @Override
     public void outOfBoundsAction() {
         getScoreBoard().nullScore();

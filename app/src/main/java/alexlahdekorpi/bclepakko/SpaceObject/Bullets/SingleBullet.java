@@ -1,9 +1,11 @@
-package alexlahdekorpi.bclepakko.SpaceObject;
+package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
@@ -38,29 +40,5 @@ public class SingleBullet extends Bullet implements Renewable {
     public void destroyAction(Gun gun) {
     }
 
- /*   @Override
-    public void destroy() {
-        this.imageView.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void reduceGunLevel() {
-    }
-
-    @Override
-    public void upGunLevel() {
-        this.upBullet = new BallBullet(getImageView(), getWindowManager(), getScoreBoard(), getLepakko());
-    }
-
-    @Override
-    public void nullGunLevel() {
-
-    }
-
-    @Override
-    public Bullet giveNewGun() {
-        return this.upBullet;
-
-    }*/
 
 }

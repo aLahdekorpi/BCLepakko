@@ -6,6 +6,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.HitChecker;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;

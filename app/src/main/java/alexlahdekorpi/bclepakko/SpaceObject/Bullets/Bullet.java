@@ -1,9 +1,11 @@
-package alexlahdekorpi.bclepakko.SpaceObject;
+package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 
 /**
  * Created by alex.lahdekorpi on 5.7.2017.

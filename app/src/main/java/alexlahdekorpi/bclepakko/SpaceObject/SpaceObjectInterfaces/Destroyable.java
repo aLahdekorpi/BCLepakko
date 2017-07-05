@@ -1,6 +1,6 @@
 package alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces;
 
-import alexlahdekorpi.bclepakko.SpaceObject.Gun;
+import alexlahdekorpi.bclepakko.Gun;
 
 /**
  * Created by alex.lahdekorpi on 27.6.2017.
