@@ -9,8 +9,8 @@
 
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -36,7 +36,8 @@
             android:layout_height="50dp"
             android:layout_gravity="end"
             android:layout_marginTop="200dp"
-            android:src="@drawable/triangle" />
+            android:src="@drawable/triangle"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/startLabel"
@@ -55,7 +56,8 @@
             android:layout_height="50dp"
             android:layout_gravity="start"
             android:layout_marginTop="200dp"
-            android:src="@drawable/circle" />
+            android:src="@drawable/circle"
+            android:visibility="invisible"/>
 
         <ImageView
             android:id="@+id/lepakkoImg"
@@ -71,7 +73,17 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="510dp"
-            android:src="@drawable/shot" />
+            android:src="@drawable/shot"/>
+
+        <ImageView
+            android:id="@+id/ball"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="510dp"
+            android:adjustViewBounds="false"
+            android:src="@drawable/ball"
+            android:visibility="invisible" />
 
 
     </FrameLayout>

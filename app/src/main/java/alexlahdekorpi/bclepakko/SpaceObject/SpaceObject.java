@@ -36,19 +36,17 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
         setScreenSizes();
     }
 
-
-    //MOVEMENT
     public void renew(){
         moveYTo(-50);
         moveXTo((int) Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
     }
+    //MOVEMENT
     public void moveX(int amount){this.imageView.setX(this.imageView.getX() + amount);}
     public void moveY(int amount){this.imageView.setY(this.imageView.getY() + amount);}
     public void moveXTo(int place){this.imageView.setX(place);}
     public void moveYTo(int place){this.imageView.setY(place);}
 
     //GETSET
-
     public ScoreBoard getScoreBoard() {return this.scoreBoard;}
     public int getY(){
         return (int) this.imageView.getY();
@@ -75,7 +73,6 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
         disp.getSize(size);
         this.screenWidth = size.x;
         this.screenHeight = size.y;
-
     }
 
 
@@ -112,7 +109,8 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     }
 
     @Override
-    public void destroyAction() {
+    public void destroyAction(Gun gun) {
 
     }
+
 }

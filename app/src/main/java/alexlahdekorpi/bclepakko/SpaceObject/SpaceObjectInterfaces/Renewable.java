@@ -5,7 +5,7 @@ package alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces;
  */
 
 public interface Renewable extends Destroyable {
-    public void renew();
-    public int getDefaultHitPoints();
-    public void setDefaultHitPoints(int defaultHitPoints);
+    void renew();
+    int getDefaultHitPoints();
+    void setDefaultHitPoints(int defaultHitPoints);
 }

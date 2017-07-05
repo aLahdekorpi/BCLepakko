@@ -1,11 +1,12 @@
 package alexlahdekorpi.bclepakko.SpaceObject;
 
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.MustKill;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollideable;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
@@ -18,7 +19,7 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
 
     public Triangle(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
         super(imageView, wm, scoreBoard);
-        setSpeed(15);
+        setSpeed(20);
         setDefaultHitPoints(3);
     }
     public void drop(){
@@ -30,6 +31,7 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
 
     @Override
     public void renew(){
+        getImageView().setVisibility(View.VISIBLE);
         moveYTo(-50);
         moveXTo((int) Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
         setHitPoints(getDefaultHitPoints());
@@ -52,7 +54,7 @@ public class Triangle extends SpaceObject implements Renewable, LepakkoCollideab
 
     }
     @Override
-    public void destroyAction(){
+    public void destroyAction(Gun gun){
         renew();
         getScoreBoard().addScore(100);
     }

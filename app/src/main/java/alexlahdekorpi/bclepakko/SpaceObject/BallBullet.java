@@ -4,23 +4,21 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.ScoreBoard;
-import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Gun;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
- * Created by alex.lahdekorpi on 3.7.2017.
+ * Created by alex.lahdekorpi on 5.7.2017.
  */
 
-public class DoubleBullet extends SingleBullet implements Renewable, Gun {
-        public ImageView secondIW;
+public class BallBullet extends Bullet implements Renewable {
 
-    public DoubleBullet(ImageView iw, WindowManager wm, ScoreBoard sb, Lepakko lep){
-        super(iw, wm, sb, lep);
-        this.secondIW = getImageView();
-        getImageView().setX(getLepakko().getX()-50);
-        this.secondIW.setX(getLepakko().getX()+50);
+    public BallBullet(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard, Lepakko lepakko){
+        super(imageView, wm, scoreBoard, lepakko);
+        setDefaultHitPoints(2);
+        setSpeed(-50);
+        setDamage(3);
     }
-    @Override
+/*    @Override
     public void destroy() {
 
     }
@@ -41,12 +39,22 @@ public class DoubleBullet extends SingleBullet implements Renewable, Gun {
     }
 
     @Override
+    public Bullet giveNewGun() {
+        return null;
+    }*/
+
+    @Override
     public int getDefaultHitPoints() {
-        return 0;
+        return this.getDefaultHitPoints();
     }
 
     @Override
     public void setDefaultHitPoints(int defaultHitPoints) {
+
+    }
+
+    @Override
+    public void destroyAction(Gun gun) {
 
     }
 }

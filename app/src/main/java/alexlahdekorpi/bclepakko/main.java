@@ -12,7 +12,10 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import alexlahdekorpi.bclepakko.SpaceObject.BallBullet;
+import alexlahdekorpi.bclepakko.SpaceObject.Bullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Circle;
+import alexlahdekorpi.bclepakko.SpaceObject.Gun;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SingleBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Triangle;
@@ -27,7 +30,10 @@ public class main extends AppCompatActivity {
     private Lepakko lepakko;
     private Triangle triangle;
     private Circle circle;
+    private Bullet[] bulletArray;
     private SingleBullet singleBullet;
+    private BallBullet ballBullet;
+    private Gun mainGun;
 
     //Initialize Class
     private Handler handler = new Handler();
@@ -50,7 +56,7 @@ public class main extends AppCompatActivity {
     public void changePos(){
         triangle.drop();
         circle.drop();
-        moveShot();
+        moveSingleShot();
     }
 
     public boolean onTouchEvent(MotionEvent me){
@@ -87,11 +93,10 @@ public class main extends AppCompatActivity {
 
 
 
-    public void moveShot() {
-        singleBullet.moveY(singleBullet.getSpeed());
-        singleBullet.checkShotOutOfBounds();
-        singleBullet.checkShotHit(triangle);
-        singleBullet.checkShotHit(circle);
+    public void moveSingleShot() {
+        mainGun.shoot();
+        mainGun.checkShotHit(triangle);
+        mainGun.checkShotHit(circle);
 
 
     }
@@ -100,6 +105,11 @@ public class main extends AppCompatActivity {
         triangle = new Triangle((ImageView) findViewById(R.id.triangle), this.wm, scoreBoard);
         circle = new Circle((ImageView) findViewById(R.id.circle), this.wm, scoreBoard);
         singleBullet = new SingleBullet ((ImageView) findViewById(R.id.shot), this.wm,scoreBoard, lepakko);
+        ballBullet = new BallBullet((ImageView) findViewById(R.id.ball), this.wm,scoreBoard, lepakko);
+        bulletArray = new Bullet[2];
+        bulletArray[0]=singleBullet;
+        bulletArray[1]=ballBullet;
+        mainGun = new Gun(bulletArray, lepakko);
 
     }
 

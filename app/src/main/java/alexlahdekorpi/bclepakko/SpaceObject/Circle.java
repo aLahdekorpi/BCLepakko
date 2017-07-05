@@ -1,11 +1,12 @@
 package alexlahdekorpi.bclepakko.SpaceObject;
 
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.MustKill;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollideable;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
@@ -31,7 +32,8 @@ public class Circle extends SpaceObject implements Renewable, LepakkoCollideable
 
     @Override
     public void renew() {
-        moveYTo(-50);
+        getImageView().setVisibility(View.VISIBLE);
+        moveYTo(-20000);
         moveXTo((int) Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
         setHitPoints(getDefaultHitPoints());
     }
@@ -44,16 +46,19 @@ public class Circle extends SpaceObject implements Renewable, LepakkoCollideable
 
     @Override
     public void lepakkoCollideAction() {
-            moveYTo(-100);
+            renew();
             getScoreBoard().nullScore();
 
     }
 
     @Override
-    public void destroyAction(){
+    public void destroyAction(Gun gun){
         renew();
+        gun.upGunLevel();
         getScoreBoard().addScore(50);
     }
+
+
 
 
     @Override
