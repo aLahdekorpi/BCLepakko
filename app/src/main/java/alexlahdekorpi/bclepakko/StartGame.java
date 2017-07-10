@@ -21,7 +21,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.PowerUps.Circle;
 
 
-public class main extends AppCompatActivity {
+public class StartGame extends AppCompatActivity {
 
     private TextView startLabel;
     private ScoreBoard scoreBoard;
@@ -81,7 +81,7 @@ public class main extends AppCompatActivity {
 
 
         } else {
-            lepakko.moveToTouch(me);
+            lepakko.moveCloserToTouch(me);
         }
         return true;
     }
@@ -119,6 +119,3 @@ public class main extends AppCompatActivity {
     }
 
 }
-
-
-
