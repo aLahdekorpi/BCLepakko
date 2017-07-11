@@ -11,30 +11,34 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
  */
 
 public class Gun {
-    public Bullet[] bulletArray;
-    public int bulletLevel;
-    public SpaceObject holder;
+    private Bullet[] bulletArray;
+    private int bulletLevel;
+    private SpaceObject holder;
 
-    public Gun(Bullet[] bulletArray, SpaceObject holder){
+    public Gun(Bullet[] bulletArray, SpaceObject holder) {
         this.bulletArray = bulletArray;
         this.holder = holder;
-        bulletLevel= 0;
+        bulletLevel = 0;
 
     }
-    public void returnToHolder(){
+
+    public void returnToHolder() {
         getBullet().moveYTo(this.holder.getY());
         getBullet().moveXTo(this.holder.getX());
     }
-    public void checkBulletOutOfBounds(){
-        if(getBullet().getY()<0){
+
+    public void checkBulletOutOfBounds() {
+        if (getBullet().getY() < 0) {
             returnToHolder();
         }
     }
+
     public void shoot() {
         getBullet().moveY(getBullet().getSpeed());
         checkBulletOutOfBounds();
     }
-    public void checkShotHit(Renewable rew){
+
+    public void checkShotHit(Renewable rew) {
         if (getBullet().getHitChecker().isHit(rew)) {
             rew.dropHitPoints(getBullet().getDamage());
             if (rew.isDestroyed()) {
@@ -44,27 +48,31 @@ public class Gun {
         }
     }
 
-    public void reduceGunLevel(){
-        if(this.bulletLevel > 0){
+    public void reduceGunLevel() {
+        if (this.bulletLevel > 0) {
             getBullet().getImageView().setVisibility(View.GONE);
             this.bulletLevel--;
             getBullet().getImageView().setVisibility(View.VISIBLE);
         }
     }
-    public void upGunLevel(){
-        if(this.bulletLevel < this.bulletArray.length-1) {
+
+    public void upGunLevel() {
+        if (this.bulletLevel < this.bulletArray.length - 1) {
             getBullet().getImageView().setVisibility(View.GONE);
             this.bulletLevel++;
             getBullet().getImageView().setVisibility(View.VISIBLE);
         }
 
     }
-    public void nullGunLevel(){
+
+    public void nullGunLevel() {
         getBullet().getImageView().setVisibility(View.GONE);
-        this.bulletLevel=0;
+        this.bulletLevel = 0;
         getBullet().getImageView().setVisibility(View.VISIBLE);
     }
-    public Bullet getBullet(){
+
+    public Bullet getBullet() {
         return this.bulletArray[this.bulletLevel];
     }
 }
+

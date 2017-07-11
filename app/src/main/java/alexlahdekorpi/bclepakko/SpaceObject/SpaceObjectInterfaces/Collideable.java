@@ -8,9 +8,12 @@ import alexlahdekorpi.bclepakko.ScoreBoard;
 
 public interface Collideable {
 
-    public int getHitX();
-    public int getHitY();
-    public void createHitChecker();
-    public ScoreBoard getScoreBoard();
+    double getHitX();
+
+    double getHitY();
+
+    void createHitChecker();
+
+    ScoreBoard getScoreBoard();
 
 }

@@ -8,4 +8,6 @@ public interface Renewable extends Destroyable {
     void renew();
     int getDefaultHitPoints();
     void setDefaultHitPoints(int defaultHitPoints);
+
+    void lepakkoCollideAction();
 }

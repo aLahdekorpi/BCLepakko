@@ -20,30 +20,6 @@ public class BallBullet extends Bullet implements Renewable {
         setSpeed(-50);
         setDamage(3);
     }
-/*    @Override
-    public void destroy() {
-
-    }
-
-    @Override
-    public void reduceGunLevel() {
-
-    }
-
-    @Override
-    public void upGunLevel() {
-
-    }
-
-    @Override
-    public void nullGunLevel() {
-
-    }
-
-    @Override
-    public Bullet giveNewGun() {
-        return null;
-    }*/
 
     @Override
     public int getDefaultHitPoints() {
@@ -52,6 +28,11 @@ public class BallBullet extends Bullet implements Renewable {
 
     @Override
     public void setDefaultHitPoints(int defaultHitPoints) {
+
+    }
+
+    @Override
+    public void lepakkoCollideAction() {
 
     }
 

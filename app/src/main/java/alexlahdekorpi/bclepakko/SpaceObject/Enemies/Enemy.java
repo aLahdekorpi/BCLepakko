@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
-import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollideable;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
@@ -15,7 +14,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
  * Created by alex.lahdekorpi on 5.7.2017.
  */
 
-public class Enemy extends SpaceObject implements LepakkoCollideable, Renewable, MustKill {
+public class Enemy extends SpaceObject implements Renewable, MustKill {
     public int startY;
     public int defaultHitPoints;
     public int points;

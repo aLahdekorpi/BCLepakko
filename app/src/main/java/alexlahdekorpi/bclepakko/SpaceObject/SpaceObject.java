@@ -19,15 +19,14 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Destroyable;
 public class SpaceObject extends AppCompatActivity implements Collideable, Destroyable {
 
 
-    private WindowManager wm;
     public ImageView imageView;
     public HitChecker hitChecker;
     public ScoreBoard scoreBoard;
-
     public int speed;
     public int hitPoints;
-    public int screenWidth;
-    public int screenHeight;
+    public double screenWidth;
+    public double screenHeight;
+    private WindowManager wm;
 
     public SpaceObject(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
         this.imageView = imageView;
@@ -39,28 +38,49 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
 
     public void renew(){
         moveYTo(-50);
-        moveXTo((int) Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
+        moveXTo(Math.floor(Math.random() * (this.screenWidth - getImageView().getWidth())));
     }
     //MOVEMENT
-    public void moveX(int amount){this.imageView.setX(this.imageView.getX() + amount);}
-    public void moveY(int amount){this.imageView.setY(this.imageView.getY() + amount);}
-    public void moveXTo(int place){this.imageView.setX(place);}
-    public void moveYTo(int place){this.imageView.setY(place);}
+    public void moveX(double amount) {
+        this.imageView.setX((float) (this.imageView.getX() + amount));
+    }
+
+    public void moveY(double amount) {
+        this.imageView.setY((float) (this.imageView.getY() + amount));
+    }
+
+    public void moveXTo(double place) {
+        this.imageView.setX((float) place);
+    }
+
+    public void moveYTo(double place) {
+        this.imageView.setY((float) place);
+    }
 
     //GETSET
     public ScoreBoard getScoreBoard() {return this.scoreBoard;}
-    public int getY(){
-        return (int) this.imageView.getY();
+
+    public float getY() {
+        return this.imageView.getY();
     }
-    public int getX(){return (int) this.imageView.getX();}
+
+    public float getX() {
+        return this.imageView.getX();
+    }
     public int getSpeed() {
         return this.speed;
     }
     public void setSpeed(int speed) { this.speed = speed; }
     public ImageView getImageView() { return this.imageView;}
     public HitChecker getHitChecker() {return this.hitChecker;}
-    public int getScreenWidth() {return this.screenWidth;}
-    public int getScreenHeight() {return this.screenHeight;}
+
+    public double getScreenWidth() {
+        return this.screenWidth;
+    }
+
+    public double getScreenHeight() {
+        return this.screenHeight;
+    }
 
     //CREATE HITCHECKER FOR SPACEOBJECT
     @Override
@@ -79,11 +99,13 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
 
     //IMPLEMENTED METHODS
     @Override
-    public int getHitX() {
+    public double getHitX() {
         return this.imageView.getWidth() + getX() / 2;
     }
     @Override
-    public int getHitY() {return this.imageView.getHeight() + getY() / 2;}
+    public double getHitY() {
+        return this.imageView.getHeight() + getY() / 2;
+    }
 
 
     @Override
@@ -92,13 +114,13 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     }
 
     @Override
-    public void dropHitPoints(int amount) {
-        this.hitPoints -= amount;
+    public void setHitPoints(int amount) {
+        this.hitPoints = amount;
     }
 
     @Override
-    public void setHitPoints(int amount) {
-        this.hitPoints = amount;
+    public void dropHitPoints(int amount) {
+        this.hitPoints -= amount;
     }
 
     @Override

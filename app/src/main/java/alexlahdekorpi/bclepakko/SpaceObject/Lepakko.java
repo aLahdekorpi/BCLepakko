@@ -5,7 +5,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.ScoreBoard;
-import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.LepakkoCollideable;
+import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
  * Created by alex.lahdekorpi on 28.6.2017.
@@ -18,14 +18,19 @@ public class Lepakko extends SpaceObject {
 
     }
 
-    public void checkCollisionWithLepakkoCollideable(LepakkoCollideable colo) {
-        if (this.getHitChecker().isHit(colo)) {
-            colo.lepakkoCollideAction();
+    public void checkCollisionWithRenewable(Renewable renewable) {
+        if (this.getHitChecker().isHit(renewable)) {
+            renewable.lepakkoCollideAction();
         }
     }
 
     public void moveXToTouch(MotionEvent me) {
-        moveXTo((int) me.getX() - 60);
+        moveXTo(me.getX() - 60);
+    }
+
+    public void moveToTouch(MotionEvent me) {
+        moveXToTouch(me);
+        moveYToTouch(me);
     }
 
     public void moveYToTouch(MotionEvent me) {
@@ -59,22 +64,22 @@ public class Lepakko extends SpaceObject {
 
     public void slideLeft(int x) {
         while(getX()>x){
-            moveX(-1);
+            moveX(-0.1);
         }
     }
     public void slideRight(int x){
         while(getX() < x){
-            moveX(1);
+            moveX(0.1);
         }
     }
     public void slideUp(int y){
         while (getY() > y){
-            moveY(-1);
+            moveY(-0.1);
         }
     }
     public void slideDown(int y ){
         while(getY() < y){
-            moveY(1);
+            moveY(0.1);
         }
     }
 }

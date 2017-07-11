@@ -13,7 +13,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
  */
 
 public class SingleBullet extends Bullet implements Renewable {
-    public Bullet upBullet;
+
     private int defaultHitPoints;
     public SingleBullet(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard, Lepakko lepakko) {
         super(imageView, wm, scoreBoard, lepakko);
@@ -32,8 +32,9 @@ public class SingleBullet extends Bullet implements Renewable {
         this.defaultHitPoints = defaultHitPoints;
     }
 
-    public Lepakko getLepakko() {
-        return lepakko;
+    @Override
+    public void lepakkoCollideAction() {
+
     }
 
     @Override
