@@ -26,7 +26,6 @@
             android:layout_gravity="start"
             android:text="Score :"
             android:textColor="@color/colorPrimary"
-
             android:textSize="20sp" />
 
 
@@ -92,7 +91,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="510dp"
             android:adjustViewBounds="false"
-            android:src="@drawable/square"/>
+            android:src="@drawable/square"
+            android:visibility="invisible"/>
 
 
     </FrameLayout>

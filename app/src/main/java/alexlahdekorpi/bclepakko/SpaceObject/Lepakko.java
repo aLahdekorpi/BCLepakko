@@ -38,29 +38,43 @@ public class Lepakko extends SpaceObject {
 
         //touch above lepakko
         if (y + 50 < getY()) {
-            moveY(-50);
+            slideUp(y);
             //touch under lepakko
         } else if (y - 50 > getY()) {
-            moveY(50);
+            slideDown(y);
         } else {
             moveYToTouch(me);
         }
         //touch right of lepakko
         if (x - 50  > getX()) {
-            moveX(50);
+            slideRight(x);
             //touch left of lepakko
         } else if (x + 50 < getX()) {
-            SlideLeft(x);
+            slideLeft(x);
         } else {
             moveXToTouch(me);
         }
 
-
-        }
-        public void SlideLeft(int x) {
-            while(getX()>x){
-                moveX(1);
-            }
-        }
     }
 
+    public void slideLeft(int x) {
+        while(getX()>x){
+            moveX(-1);
+        }
+    }
+    public void slideRight(int x){
+        while(getX() < x){
+            moveX(1);
+        }
+    }
+    public void slideUp(int y){
+        while (getY() > y){
+            moveY(-1);
+        }
+    }
+    public void slideDown(int y ){
+        while(getY() < y){
+            moveY(1);
+        }
+    }
+}
