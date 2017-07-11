@@ -1,22 +1,19 @@
-package alexlahdekorpi.bclepakko.SpaceObject;
+package alexlahdekorpi.bclepakko;
 
 import android.app.Activity;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import alexlahdekorpi.bclepakko.Gun;
-import alexlahdekorpi.bclepakko.R;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.BallBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.Bullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.SingleBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Square;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Triangle;
+import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.PowerUps.Circle;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
-import alexlahdekorpi.bclepakko.StartGame;
 
 
 /**

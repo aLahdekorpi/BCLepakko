@@ -33,7 +33,6 @@ public class BallBullet extends Bullet implements Renewable {
 
     @Override
     public void lepakkoCollideAction() {
-
     }
 
     @Override
