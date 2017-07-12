@@ -1,9 +1,10 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
-import android.view.WindowManager;
+import android.app.Activity;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
@@ -14,8 +15,9 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 public class BallBullet extends Bullet implements Renewable {
 
-    public BallBullet(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard, Lepakko lepakko){
-        super(imageView, wm, scoreBoard, lepakko);
+    public BallBullet(Activity activity, ScoreBoard scoreBoard, Lepakko lepakko) {
+        super(activity, scoreBoard, lepakko);
+        setImageView((ImageView) this.activity.findViewById(R.id.ball));
         setDefaultHitPoints(2);
         setSpeed(-50);
         setDamage(3);

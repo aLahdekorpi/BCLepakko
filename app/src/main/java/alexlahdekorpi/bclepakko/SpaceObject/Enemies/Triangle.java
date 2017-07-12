@@ -1,8 +1,9 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 
-import android.view.WindowManager;
+import android.app.Activity;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 
 /**
@@ -11,8 +12,9 @@ import alexlahdekorpi.bclepakko.ScoreBoard;
 
 public class Triangle extends Enemy {
 
-    public Triangle(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
-        super(imageView, wm, scoreBoard);
+    public Triangle(Activity activity, ScoreBoard scoreBoard) {
+        super(activity, scoreBoard);
+        setImageView((ImageView) this.activity.findViewById(R.id.triangle));
         setSpeed(20);
         setDefaultHitPoints(3);
         setPoints(100);

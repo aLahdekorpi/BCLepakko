@@ -2,7 +2,6 @@ package alexlahdekorpi.bclepakko;
 
 import android.app.Activity;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.BallBullet;
@@ -39,6 +38,7 @@ public class SpaceHandler extends StartGame {
 
     public SpaceHandler(Activity activity) {
         this.activity = activity;
+        initializeActivity();
         createSpaceObjects();
     }
 
@@ -48,15 +48,19 @@ public class SpaceHandler extends StartGame {
         }
     }
 
-
-    private void createSpaceObjects() {
+    public void initializeActivity() {
         this.wm = this.activity.getWindowManager();
         this.startLabel = (TextView) this.activity.findViewById(R.id.startLabel);
         this.scoreBoard = new ScoreBoard((TextView) this.activity.findViewById(R.id.scoreText));
-        this.lepakko = new Lepakko((ImageView) this.activity.findViewById(R.id.lepakkoImg), this.wm, this.scoreBoard);
-        this.triangle = new Triangle((ImageView) this.activity.findViewById(R.id.triangle), this.wm, this.scoreBoard);
-        this.circle = new Circle((ImageView) this.activity.findViewById(R.id.circle), this.wm, this.scoreBoard);
-        this.square = new Square((ImageView) this.activity.findViewById(R.id.square), this.wm, this.scoreBoard);
+    }
+
+
+    private void createSpaceObjects() {
+
+        this.lepakko = new Lepakko(this.activity, this.scoreBoard);
+        this.triangle = new Triangle(this.activity, this.scoreBoard);
+        this.circle = new Circle(this.activity, this.scoreBoard);
+        this.square = new Square(this.activity, this.scoreBoard);
         this.ren = new Renewable[3];
         this.ren[0] = this.circle;
         this.ren[1] = this.triangle;
@@ -66,8 +70,8 @@ public class SpaceHandler extends StartGame {
         this.enemies[1] = this.triangle;
         this.enemies[2] = this.square;
 
-        this.singleBullet = new SingleBullet((ImageView) this.activity.findViewById(R.id.shot), this.wm, this.scoreBoard, this.lepakko);
-        this.ballBullet = new BallBullet((ImageView) this.activity.findViewById(R.id.ball), this.wm, this.scoreBoard, this.lepakko);
+        this.singleBullet = new SingleBullet(this.activity, this.scoreBoard, this.lepakko);
+        this.ballBullet = new BallBullet(this.activity, this.scoreBoard, this.lepakko);
         this.bulletArray = new Bullet[2];
         this.bulletArray[0] = singleBullet;
         this.bulletArray[1] = this.ballBullet;

@@ -1,8 +1,7 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 
+import android.app.Activity;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.ScoreBoard;
@@ -18,8 +17,9 @@ public class Enemy extends SpaceObject implements Renewable, MustKill {
     public int startY;
     public int defaultHitPoints;
     public int points;
-    public Enemy(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
-        super(imageView, wm, scoreBoard);
+
+    public Enemy(Activity activity, ScoreBoard scoreBoard) {
+        super(activity, scoreBoard);
     }
     public void drop(){
         moveY(getSpeed());
@@ -78,4 +78,5 @@ public class Enemy extends SpaceObject implements Renewable, MustKill {
         getScoreBoard().nullScore();
         renew();
     }
+
 }

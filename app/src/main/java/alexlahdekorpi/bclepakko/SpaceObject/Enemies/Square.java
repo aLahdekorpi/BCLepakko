@@ -1,8 +1,9 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 
-import android.view.WindowManager;
+import android.app.Activity;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 
 /**
@@ -11,8 +12,9 @@ import alexlahdekorpi.bclepakko.ScoreBoard;
 
 public class Square extends Enemy {
 
-    public Square(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
-        super(imageView, wm, scoreBoard);
+    public Square(Activity activity, ScoreBoard scoreBoard) {
+        super(activity, scoreBoard);
+        setImageView((ImageView) this.activity.findViewById(R.id.square));
         setDefaultHitPoints(15);
         setSpeed(15);
         setPoints(2000);

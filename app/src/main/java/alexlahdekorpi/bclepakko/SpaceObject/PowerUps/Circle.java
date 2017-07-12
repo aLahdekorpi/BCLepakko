@@ -1,9 +1,10 @@
 package alexlahdekorpi.bclepakko.SpaceObject.PowerUps;
 
-import android.view.WindowManager;
+import android.app.Activity;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
@@ -14,8 +15,9 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 public class Circle extends Enemy implements Renewable {
 
-    public Circle(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
-        super(imageView, wm, scoreBoard);
+    public Circle(Activity activity, ScoreBoard scoreBoard) {
+        super(activity, scoreBoard);
+        setImageView((ImageView) this.activity.findViewById(R.id.circle));
         setSpeed(20);
         setDefaultHitPoints(1);
         setPoints(100);

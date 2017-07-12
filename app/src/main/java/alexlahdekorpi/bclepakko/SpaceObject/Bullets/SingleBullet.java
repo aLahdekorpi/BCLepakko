@@ -1,9 +1,10 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
-import android.view.WindowManager;
+import android.app.Activity;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
@@ -15,8 +16,10 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 public class SingleBullet extends Bullet implements Renewable {
 
     private int defaultHitPoints;
-    public SingleBullet(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard, Lepakko lepakko) {
-        super(imageView, wm, scoreBoard, lepakko);
+
+    public SingleBullet(Activity activity, ScoreBoard scoreBoard, Lepakko lepakko) {
+        super(activity, scoreBoard, lepakko);
+        setImageView((ImageView) this.activity.findViewById(R.id.shot));
         this.defaultHitPoints = 1;
         setSpeed(-100);
         setDamage(1);

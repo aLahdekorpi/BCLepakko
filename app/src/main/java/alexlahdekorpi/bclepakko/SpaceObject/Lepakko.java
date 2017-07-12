@@ -1,9 +1,10 @@
 package alexlahdekorpi.bclepakko.SpaceObject;
 
+import android.app.Activity;
 import android.view.MotionEvent;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
@@ -13,9 +14,9 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 public class Lepakko extends SpaceObject {
 
-    public Lepakko(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
-        super(imageView, wm, scoreBoard);
-
+    public Lepakko(Activity activity, ScoreBoard scoreBoard) {
+        super(activity, scoreBoard);
+        setImageView((ImageView) this.activity.findViewById(R.id.lepakkoImg));
     }
 
     public void checkCollisionWithRenewable(Renewable renewable) {

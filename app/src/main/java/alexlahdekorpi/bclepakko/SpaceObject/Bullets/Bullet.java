@@ -1,7 +1,6 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
-import android.view.WindowManager;
-import android.widget.ImageView;
+import android.app.Activity;
 
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
@@ -14,8 +13,9 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 public class Bullet extends SpaceObject {
     public Lepakko lepakko;
     public int damage;
-    public Bullet(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard, Lepakko lepakko) {
-        super(imageView, wm, scoreBoard);
+
+    public Bullet(Activity activity, ScoreBoard scoreBoard, Lepakko lepakko) {
+        super(activity, scoreBoard);
         this.lepakko = lepakko;
     }
 

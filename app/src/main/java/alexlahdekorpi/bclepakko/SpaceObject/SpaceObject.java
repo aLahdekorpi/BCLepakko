@@ -1,9 +1,8 @@
 package alexlahdekorpi.bclepakko.SpaceObject;
 
+import android.app.Activity;
 import android.graphics.Point;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
 import alexlahdekorpi.bclepakko.Gun;
@@ -11,14 +10,15 @@ import alexlahdekorpi.bclepakko.HitChecker;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Destroyable;
+import alexlahdekorpi.bclepakko.StartGame;
 
 /**
  * Created by alex.lahdekorpi on 22.6.2017.
  */
 
-public class SpaceObject extends AppCompatActivity implements Collideable, Destroyable {
+public class SpaceObject extends StartGame implements Collideable, Destroyable {
 
-
+    public Activity activity;
     public ImageView imageView;
     public HitChecker hitChecker;
     public ScoreBoard scoreBoard;
@@ -26,11 +26,9 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     public int hitPoints;
     public double screenWidth;
     public double screenHeight;
-    private WindowManager wm;
 
-    public SpaceObject(ImageView imageView, WindowManager wm, ScoreBoard scoreBoard) {
-        this.imageView = imageView;
-        this.wm = wm;
+    public SpaceObject(Activity activity, ScoreBoard scoreBoard) {
+        this.activity = activity;
         this.scoreBoard = scoreBoard;
         createHitChecker();
         setScreenSizes();
@@ -59,11 +57,9 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
 
     //GETSET
     public ScoreBoard getScoreBoard() {return this.scoreBoard;}
-
     public float getY() {
         return this.imageView.getY();
     }
-
     public float getX() {
         return this.imageView.getX();
     }
@@ -72,6 +68,11 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     }
     public void setSpeed(int speed) { this.speed = speed; }
     public ImageView getImageView() { return this.imageView;}
+
+    public void setImageView(ImageView view) {
+        this.imageView = view;
+    }
+
     public HitChecker getHitChecker() {return this.hitChecker;}
 
     public double getScreenWidth() {
@@ -89,24 +90,23 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     }
 
     public void setScreenSizes(){
-        Display disp = this.wm.getDefaultDisplay();
+        Display disp = this.activity.getWindowManager().getDefaultDisplay();
         Point size = new Point();
         disp.getSize(size);
         this.screenWidth = size.x;
         this.screenHeight = size.y;
     }
 
-
     //IMPLEMENTED METHODS
     @Override
     public double getHitX() {
         return this.imageView.getWidth() + getX() / 2;
     }
+
     @Override
     public double getHitY() {
         return this.imageView.getHeight() + getY() / 2;
     }
-
 
     @Override
     public int getHitPoints() {
@@ -135,5 +135,4 @@ public class SpaceObject extends AppCompatActivity implements Collideable, Destr
     public void destroyAction(Gun gun) {
 
     }
-
 }
