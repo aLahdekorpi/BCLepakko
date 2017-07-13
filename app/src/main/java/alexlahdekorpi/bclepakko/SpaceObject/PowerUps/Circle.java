@@ -7,13 +7,12 @@ import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
-import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**
  * Created by alex.lahdekorpi on 27.6.2017.
  */
 
-public class Circle extends Enemy implements Renewable {
+public class Circle extends Enemy {
 
     public Circle(Activity activity, ScoreBoard scoreBoard) {
         super(activity, scoreBoard);
