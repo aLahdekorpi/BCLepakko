@@ -10,7 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class StartGame extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     //Initialize Class
     private Handler handler = new Handler();
