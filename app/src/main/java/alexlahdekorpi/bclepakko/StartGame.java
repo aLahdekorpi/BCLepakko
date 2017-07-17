@@ -9,6 +9,8 @@ import android.view.View;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import alexlahdekorpi.bclepakko.Logic.UniversalHitChecker;
+
 
 public class StartGame extends AppCompatActivity {
 

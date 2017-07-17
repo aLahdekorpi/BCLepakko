@@ -3,8 +3,8 @@ package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 import android.app.Activity;
 import android.view.View;
 
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.Gun;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;

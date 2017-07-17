@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.R;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 /**

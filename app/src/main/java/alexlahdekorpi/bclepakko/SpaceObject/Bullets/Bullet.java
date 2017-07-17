@@ -2,7 +2,7 @@ package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
 import android.app.Activity;
 
-import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 

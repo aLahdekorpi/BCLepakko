@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.BallBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.Bullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.SingleBullet;

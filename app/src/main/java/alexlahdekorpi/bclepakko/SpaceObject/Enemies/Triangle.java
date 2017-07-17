@@ -3,8 +3,8 @@ package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 import android.app.Activity;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.R;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 
 /**
  * Created by alex.lahdekorpi on 27.6.2017.

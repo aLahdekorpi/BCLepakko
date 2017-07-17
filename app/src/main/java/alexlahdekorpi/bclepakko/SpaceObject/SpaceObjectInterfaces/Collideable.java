@@ -1,6 +1,7 @@
 package alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces;
 
-import alexlahdekorpi.bclepakko.ScoreBoard;
+
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 
 /**
  * Created by alex.lahdekorpi on 26.6.2017.

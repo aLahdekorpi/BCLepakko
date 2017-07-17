@@ -3,9 +3,9 @@ package alexlahdekorpi.bclepakko.SpaceObject.PowerUps;
 import android.app.Activity;
 import android.widget.ImageView;
 
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.R;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
 
 /**
