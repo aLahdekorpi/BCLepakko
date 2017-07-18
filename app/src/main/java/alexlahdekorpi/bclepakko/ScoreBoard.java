@@ -1,4 +1,4 @@
-package alexlahdekorpi.bclepakko.Gui;
+package alexlahdekorpi.bclepakko;
 
 import android.widget.TextView;
 

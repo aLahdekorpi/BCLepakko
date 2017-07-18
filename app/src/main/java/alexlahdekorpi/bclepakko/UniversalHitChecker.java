@@ -1,6 +1,5 @@
-package alexlahdekorpi.bclepakko.Logic;
+package alexlahdekorpi.bclepakko;
 
-import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 

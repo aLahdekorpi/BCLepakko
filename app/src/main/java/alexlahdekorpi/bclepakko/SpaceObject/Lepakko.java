@@ -1,12 +1,12 @@
 package alexlahdekorpi.bclepakko.SpaceObject;
 
-import android.app.Activity;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.R;
+import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
+import alexlahdekorpi.bclepakko.StartActivity;
 
 /**
  * Created by alex.lahdekorpi on 28.6.2017.
@@ -14,7 +14,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 
 public class Lepakko extends SpaceObject {
 
-    public Lepakko(Activity activity, ScoreBoard scoreBoard) {
+    public Lepakko(StartActivity activity, ScoreBoard scoreBoard) {
         super(activity, scoreBoard);
         setImageView((ImageView) this.activity.findViewById(R.id.lepakkoImg));
     }

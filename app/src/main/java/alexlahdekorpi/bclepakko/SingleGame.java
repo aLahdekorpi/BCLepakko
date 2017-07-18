@@ -1,10 +1,8 @@
 package alexlahdekorpi.bclepakko;
 
-import android.app.Activity;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.BallBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.Bullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.SingleBullet;
@@ -20,11 +18,12 @@ import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
  * Created by alex.lahdekorpi on 11.7.2017.
  */
 
-public class SpaceHandler extends StartGame {
+public class SingleGame extends StartActivity {
 
     Renewable[] ren;
     Enemy[] enemies;
-    Activity activity;
+    StartActivity activity;
+    private boolean alive;
     private Lepakko lepakko;
     private Triangle triangle;
     private Circle circle;
@@ -37,7 +36,7 @@ public class SpaceHandler extends StartGame {
     private ScoreBoard scoreBoard;
     private WindowManager wm;
 
-    public SpaceHandler(Activity activity) {
+    public SingleGame(StartActivity activity) {
         this.activity = activity;
         initializeActivity();
         createSpaceObjects();

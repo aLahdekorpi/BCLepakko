@@ -1,12 +1,12 @@
 package alexlahdekorpi.bclepakko.SpaceObject.PowerUps;
 
-import android.app.Activity;
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.Gun;
 import alexlahdekorpi.bclepakko.R;
+import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
+import alexlahdekorpi.bclepakko.StartActivity;
 
 /**
  * Created by alex.lahdekorpi on 27.6.2017.
@@ -14,7 +14,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
 
 public class Circle extends Enemy {
 
-    public Circle(Activity activity, ScoreBoard scoreBoard) {
+    public Circle(StartActivity activity, ScoreBoard scoreBoard) {
         super(activity, scoreBoard);
         setImageView((ImageView) this.activity.findViewById(R.id.circle));
         setSpeed(20);

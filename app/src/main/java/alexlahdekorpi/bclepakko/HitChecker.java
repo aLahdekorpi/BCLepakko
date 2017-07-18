@@ -1,4 +1,4 @@
-package alexlahdekorpi.bclepakko.Logic;
+package alexlahdekorpi.bclepakko;
 
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;
 

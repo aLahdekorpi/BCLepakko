@@ -1,24 +1,23 @@
 package alexlahdekorpi.bclepakko.SpaceObject;
 
-import android.app.Activity;
 import android.graphics.Point;
 import android.view.Display;
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.Gun;
-import alexlahdekorpi.bclepakko.Logic.HitChecker;
+import alexlahdekorpi.bclepakko.HitChecker;
+import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Destroyable;
-import alexlahdekorpi.bclepakko.StartGame;
+import alexlahdekorpi.bclepakko.StartActivity;
 
 /**
  * Created by alex.lahdekorpi on 22.6.2017.
  */
 
-public class SpaceObject extends StartGame implements Collideable, Destroyable {
+public class SpaceObject extends StartActivity implements Collideable, Destroyable {
 
-    public Activity activity;
+    public StartActivity activity;
     public ImageView imageView;
     public HitChecker hitChecker;
     public ScoreBoard scoreBoard;
@@ -27,7 +26,7 @@ public class SpaceObject extends StartGame implements Collideable, Destroyable {
     public double screenWidth;
     public double screenHeight;
 
-    public SpaceObject(Activity activity, ScoreBoard scoreBoard) {
+    public SpaceObject(StartActivity activity, ScoreBoard scoreBoard) {
         this.activity = activity;
         this.scoreBoard = scoreBoard;
         createHitChecker();

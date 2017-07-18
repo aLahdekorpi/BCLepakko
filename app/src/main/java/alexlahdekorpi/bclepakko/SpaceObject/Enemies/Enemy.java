@@ -1,13 +1,13 @@
 package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 
-import android.app.Activity;
 import android.view.View;
 
-import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
 import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
+import alexlahdekorpi.bclepakko.StartActivity;
 
 /**
  * Created by alex.lahdekorpi on 5.7.2017.
@@ -18,13 +18,14 @@ public class Enemy extends SpaceObject implements Renewable, MustKill {
     public int defaultHitPoints;
     public int points;
 
-    public Enemy(Activity activity, ScoreBoard scoreBoard) {
+    public Enemy(StartActivity activity, ScoreBoard scoreBoard) {
         super(activity, scoreBoard);
     }
     public void drop(){
         moveY(getSpeed());
         if(getY() > getScreenHeight()){
             outOfBoundsAction();
+
         }
     }
 
