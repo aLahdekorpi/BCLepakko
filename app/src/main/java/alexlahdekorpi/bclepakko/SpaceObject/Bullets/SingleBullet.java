@@ -2,9 +2,9 @@ package alexlahdekorpi.bclepakko.SpaceObject.Bullets;
 
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
+import alexlahdekorpi.bclepakko.Logic.Gun;
 import alexlahdekorpi.bclepakko.R;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
 import alexlahdekorpi.bclepakko.StartActivity;

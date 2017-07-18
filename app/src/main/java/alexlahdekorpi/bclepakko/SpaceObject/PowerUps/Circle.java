@@ -2,9 +2,9 @@ package alexlahdekorpi.bclepakko.SpaceObject.PowerUps;
 
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
+import alexlahdekorpi.bclepakko.Logic.Gun;
 import alexlahdekorpi.bclepakko.R;
-import alexlahdekorpi.bclepakko.ScoreBoard;
 import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Enemy;
 import alexlahdekorpi.bclepakko.StartActivity;
 

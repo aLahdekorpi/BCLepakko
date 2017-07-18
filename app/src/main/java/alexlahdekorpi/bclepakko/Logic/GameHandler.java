@@ -1,4 +1,6 @@
-package alexlahdekorpi.bclepakko;
+package alexlahdekorpi.bclepakko.Logic;
+
+import alexlahdekorpi.bclepakko.StartActivity;
 
 /**
  * Created by alex.lahdekorpi on 18.7.2017.
@@ -23,10 +25,6 @@ public class GameHandler extends StartActivity {
     }
 
     public void onTouch() {
-        /*if(!this.sg.getLepakko().isAlive()){
-            this.sg = new SingleGame(this.activity);
-            this.uhc = new UniversalHitChecker(sg.getMainGun(), sg.getEnemies(), sg.getLepakko());
-        }*/
         changePos();
         this.uhc.checkLepakkoHits();
         this.sg.getScoreBoard().update();

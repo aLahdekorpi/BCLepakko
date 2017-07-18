@@ -1,4 +1,4 @@
-package alexlahdekorpi.bclepakko;
+package alexlahdekorpi.bclepakko.Logic;
 
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;

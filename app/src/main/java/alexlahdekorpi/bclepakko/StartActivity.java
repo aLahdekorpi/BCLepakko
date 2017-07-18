@@ -9,13 +9,16 @@ import android.view.View;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import alexlahdekorpi.bclepakko.Logic.GameHandler;
+
 
 public class StartActivity extends AppCompatActivity {
 
     //Initialize Class
-    private Handler handler = new Handler();
-    private Timer timer = new Timer();
+    public Handler handler = new Handler();
+    public Timer timer = new Timer();
     private GameHandler gh;
+    private boolean alive;
 
     //Status Check
     private boolean start_flg = false;
@@ -25,6 +28,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.gh = new GameHandler(this);
+        this.alive = true;
     }
 
 
@@ -52,4 +56,11 @@ public class StartActivity extends AppCompatActivity {
         return true;
     }
 
+    public boolean isAlive() {
+        return this.alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
 }

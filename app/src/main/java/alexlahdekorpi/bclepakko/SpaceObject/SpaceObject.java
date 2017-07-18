@@ -4,9 +4,9 @@ import android.graphics.Point;
 import android.view.Display;
 import android.widget.ImageView;
 
-import alexlahdekorpi.bclepakko.Gun;
-import alexlahdekorpi.bclepakko.HitChecker;
-import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
+import alexlahdekorpi.bclepakko.Logic.Gun;
+import alexlahdekorpi.bclepakko.Logic.HitChecker;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Collideable;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Destroyable;
 import alexlahdekorpi.bclepakko.StartActivity;

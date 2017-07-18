@@ -2,8 +2,8 @@ package alexlahdekorpi.bclepakko.SpaceObject.Enemies;
 
 import android.view.View;
 
-import alexlahdekorpi.bclepakko.Gun;
-import alexlahdekorpi.bclepakko.ScoreBoard;
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
+import alexlahdekorpi.bclepakko.Logic.Gun;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObject;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.MustKill;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
@@ -25,7 +25,7 @@ public class Enemy extends SpaceObject implements Renewable, MustKill {
         moveY(getSpeed());
         if(getY() > getScreenHeight()){
             outOfBoundsAction();
-
+            this.activity.setAlive(false);
         }
     }
 

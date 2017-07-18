@@ -1,8 +1,10 @@
-package alexlahdekorpi.bclepakko;
+package alexlahdekorpi.bclepakko.Logic;
 
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import alexlahdekorpi.bclepakko.Gui.ScoreBoard;
+import alexlahdekorpi.bclepakko.R;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.BallBullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.Bullet;
 import alexlahdekorpi.bclepakko.SpaceObject.Bullets.SingleBullet;
@@ -12,6 +14,7 @@ import alexlahdekorpi.bclepakko.SpaceObject.Enemies.Triangle;
 import alexlahdekorpi.bclepakko.SpaceObject.Lepakko;
 import alexlahdekorpi.bclepakko.SpaceObject.PowerUps.Circle;
 import alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces.Renewable;
+import alexlahdekorpi.bclepakko.StartActivity;
 
 
 /**
@@ -45,6 +48,9 @@ public class SingleGame extends StartActivity {
     public void moveEnemies() {
         for (Enemy enemy : this.enemies) {
             enemy.drop();
+            if (!this.activity.isAlive()) {
+                /*intent*/
+            }
         }
     }
 

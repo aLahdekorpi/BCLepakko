@@ -1,6 +1,6 @@
 package alexlahdekorpi.bclepakko.SpaceObject.SpaceObjectInterfaces;
 
-import alexlahdekorpi.bclepakko.Gun;
+import alexlahdekorpi.bclepakko.Logic.Gun;
 
 /**
  * Created by alex.lahdekorpi on 27.6.2017.
@@ -8,8 +8,11 @@ import alexlahdekorpi.bclepakko.Gun;
 
 public interface Destroyable extends Collideable {
     int getHitPoints();
-    void dropHitPoints(int amount);
+
     void setHitPoints(int amount);
+
+    void dropHitPoints(int amount);
+
     boolean isDestroyed();
     void destroyAction(Gun gun);
 

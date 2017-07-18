@@ -1,4 +1,4 @@
-package alexlahdekorpi.bclepakko;
+package alexlahdekorpi.bclepakko.Logic;
 
 import android.view.View;
 
