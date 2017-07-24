@@ -46,7 +46,6 @@
             android:layout_marginTop="100dp"
             android:text="Hold To Start BCLepakko!"
             android:textColor="@color/colorPrimary"
-
             android:textSize="30sp" />
 
         <ImageView

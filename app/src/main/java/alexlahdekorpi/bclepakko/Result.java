@@ -13,6 +13,6 @@ public class Result extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         TextView scoreLabel = (TextView) findViewById(R.id.scoreText);
-        TextView highScore = (TextView) findViewById(R.id.highScoreText);
+        TextView highScore = (TextView) findViewById(R.id.score);
     }
 }
