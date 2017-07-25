@@ -1,5 +1,6 @@
 package alexlahdekorpi.bclepakko;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -56,11 +57,10 @@ public class StartActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean isAlive() {
-        return this.alive;
+    public void resultStuff() {
+        Intent intent = new Intent(getApplicationContext(), Result.class);
+        intent.putExtra("SCORE, ", this.gh.getSg().getScoreBoard().score);
+        startActivity(intent);
     }
 
-    public void setAlive(boolean alive) {
-        this.alive = alive;
-    }
 }

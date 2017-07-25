@@ -26,7 +26,6 @@ public class SingleGame extends StartActivity {
     Renewable[] ren;
     Enemy[] enemies;
     StartActivity activity;
-    private boolean alive;
     private Lepakko lepakko;
     private Triangle triangle;
     private Circle circle;
@@ -48,9 +47,6 @@ public class SingleGame extends StartActivity {
     public void moveEnemies() {
         for (Enemy enemy : this.enemies) {
             enemy.drop();
-            if (!this.activity.isAlive()) {
-                /*intent*/
-            }
         }
     }
 

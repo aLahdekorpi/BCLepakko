@@ -25,7 +25,6 @@ public class Enemy extends SpaceObject implements Renewable, MustKill {
         moveY(getSpeed());
         if(getY() > getScreenHeight()){
             outOfBoundsAction();
-            this.activity.setAlive(false);
         }
     }
 

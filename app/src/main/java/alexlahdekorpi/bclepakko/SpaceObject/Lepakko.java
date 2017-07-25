@@ -13,15 +13,17 @@ import alexlahdekorpi.bclepakko.StartActivity;
  */
 
 public class Lepakko extends SpaceObject {
-
+    public boolean alive;
     public Lepakko(StartActivity activity, ScoreBoard scoreBoard) {
         super(activity, scoreBoard);
+        this.alive = true;
         setImageView((ImageView) this.activity.findViewById(R.id.lepakkoImg));
     }
 
     public void checkCollisionWithRenewable(Renewable renewable) {
         if (this.getHitChecker().isHit(renewable)) {
             renewable.lepakkoCollideAction();
+            this.activity.resultStuff();
         }
     }
 
@@ -83,4 +85,5 @@ public class Lepakko extends SpaceObject {
             moveY(0.1);
         }
     }
+
 }
